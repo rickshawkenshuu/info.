@@ -85,6 +85,10 @@ body{padding-bottom:84px}
 #nav button#nt{background:var(--red);border-color:var(--red);color:#fff}
 #nav button:disabled{opacity:.35;cursor:default}
 
+.links{display:flex;flex-wrap:wrap;gap:8px;padding:0 4px 14px 32px;border-bottom:1px solid var(--line);margin-top:-6px;text-align:left}
+.lk{display:inline-block;padding:6px 12px;border:1px solid var(--red);color:var(--red);text-decoration:none;font-size:.85rem;letter-spacing:.05em;border-radius:2px;background:#fff}
+.lk:hover{background:var(--red);color:#fff}
+.lk::after{content:" ↗"}
 </style>
 </head>
 <body>
@@ -159,8 +163,8 @@ body{padding-bottom:84px}
     <div class="panel">
       <label class="chk"><input type="checkbox"><span>今日のレーンは？</span></label>
       <label class="chk"><input type="checkbox"><span>今日のなんの日（祝日）？</span></label>
-      <label class="chk"><input type="checkbox"><span>直近の浅草のイベントは？</span></label>
-      <label class="chk"><input type="checkbox"><span>スカイツリーのライトアップのテーマは？</span></label>
+      <label class="chk"><input type="checkbox"><span>直近の浅草のイベントは？</span></label><div class="links"><a class="lk" href="https://www.asakusa-shinnaka.com/calendar/" target="_blank" rel="noopener noreferrer">浅草イベントカレンダー</a><a class="lk" href="https://t-navi.city.taito.lg.jp/event?" target="_blank" rel="noopener noreferrer">台東区公式観光情報サイト</a></div>
+      <label class="chk"><input type="checkbox"><span>スカイツリーのライトアップのテーマは？</span></label><div class="links"><a class="lk" href="https://www.tokyo-skytree.jp/enjoy/lighting/" target="_blank" rel="noopener noreferrer">スカイツリー ライトアップ</a></div>
       <label class="chk"><input type="checkbox"><span>今日自分はなぜ出勤するのか？</span></label>
       <label class="chk"><input type="checkbox"><span>会社への感謝</span></label>
       <div class="btns"><button class="btn ghost" id="reset">チェックをリセット</button></div>
@@ -236,7 +240,7 @@ function renderQ(){
 }
 function nextQ(){
   if(P.ptr<P.hist.length-1)P.ptr++;
-  else{if(!P.queue.length)P.queue=shuffle(P.cfg.pool.slice());P.hist.push(P.queue.pop());P.ptr++;}
+  else{if(!P.queue.length)P.queue=P.cfg.ordered?P.cfg.pool.slice().reverse():shuffle(P.cfg.pool.slice());P.hist.push(P.queue.pop());P.ptr++;}
   renderQ();
 }
 hooks.play=e=>{P.cfg=e.cfg;P.hist=[];P.ptr=-1;P.queue=[];nextQ();};
@@ -248,7 +252,7 @@ const play=cfg=>push({id:'play',cfg});
 
 [[1,20],[21,40],[41,60],[61,80],[81,100],[101,132]].forEach(([a,b])=>{
   const c=document.createElement('button');c.className='card';c.textContent=a+'〜'+b;
-  c.onclick=()=>play({title:'公式の132問',data:QA,pool:range(a,b),prefix:'Q',label:a+'〜'+b});
+  c.onclick=()=>play({title:'公式の132問',data:QA,pool:range(a,b),prefix:'Q',label:a+'〜'+b+'（順番どおり）',ordered:true});
   $('rangemenu').appendChild(c);});
 {const c=document.createElement('button');c.className='card';c.innerHTML='全てランダム<small>1〜132</small>';
  c.onclick=()=>play({title:'公式の132問',data:QA,pool:range(1,132),prefix:'Q',label:'全て'});$('rangemenu').appendChild(c);}
