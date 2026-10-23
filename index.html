@@ -89,6 +89,28 @@ body{padding-bottom:84px}
 .lk{display:inline-block;padding:6px 12px;border:1px solid var(--red);color:var(--red);text-decoration:none;font-size:.85rem;letter-spacing:.05em;border-radius:2px;background:#fff}
 .lk:hover{background:var(--red);color:#fff}
 .lk::after{content:" ↗"}
+#play .panel.fin .q,#play .panel.fin .a,#play .panel.fin #prow1,#play .panel.fin #pnext{display:none}
+#pfin{display:none;text-align:left}
+#play .panel.fin #pfin{display:block}
+#pfin .ask{text-align:center;color:var(--red);font-weight:700;font-size:1.1rem;line-height:1.7;margin:4px 0 6px}
+#pfin h3{text-align:center;font-size:.95rem;letter-spacing:.2em;margin:14px 0 6px;padding-bottom:8px;border-bottom:1px solid var(--line)}
+#pfin ul{list-style:none;padding:0;margin:0}
+#pfin li{padding:11px 4px;border-bottom:1px solid var(--line)}
+#pfin li::before{content:"・";color:var(--red)}
+#pfin .btns{margin-top:18px}
+.fare{text-align:center}
+.fare h3{font-size:.95rem;letter-spacing:.2em;margin:22px 0 10px;padding-bottom:8px;border-bottom:1px solid var(--line)}
+.fare h3:first-child{margin-top:0}
+.ft{width:100%;border-collapse:collapse;font-size:1.05rem}
+.ft th,.ft td{padding:11px 6px;border-bottom:1px solid var(--line)}
+.ft thead th{font-weight:600;letter-spacing:.2em;border-bottom:2px solid var(--ink)}
+.ft tbody th{font-weight:600;text-align:left;padding-left:10px}
+.ft td{font-weight:600}
+.fm{display:flex;flex-direction:column;gap:2px;padding:12px 8px;margin:8px 0;border:1px solid var(--line);border-left:3px solid var(--red);border-radius:2px;text-align:left}
+.fm .who{color:var(--sub);font-size:.82rem;letter-spacing:.15em}
+.fm .eq{font-size:1.25rem;font-weight:700;letter-spacing:.08em}
+.fm.off{text-align:center}.fm.off .eq{color:var(--red)}
+.fnote{color:var(--sub);font-size:.85rem;margin-top:4px}
 </style>
 </head>
 <body>
@@ -99,6 +121,7 @@ body{padding-bottom:84px}
       <button class="card" data-go="quizmenu">研修生一問一答</button>
       <button class="card" data-go="gourmet">浅草グルメ</button>
       <button class="card" data-go="train">電車路線</button>
+      <button class="card" data-go="fare">人力車料金計算方法</button>
       <a class="card" href="https://www.google.com/maps/d/u/0/viewer?mid=1O4N63zRXXhBYlwskBWLnWKOyMqNeOb34&hl=ja&femb=1&ll=35.713707239212994%2C139.7975229764587&z=16" target="_blank" rel="noopener noreferrer">浅草トイレマップ<small>Googleマップが開きます</small></a>
       <button class="card" data-go="check">出勤前に確認すること</button>
     </div>
@@ -110,6 +133,7 @@ body{padding-bottom:84px}
       <button class="card" data-go="q132menu">公式の132問<small>範囲を選べます</small></button>
       <button class="card" data-go="fukumenu">浅草七福神一問一答</button>
       <button class="card" id="go5">5つのメイン寺・神社一問一答<small>30問</small></button>
+      <button class="card" id="gopast">過去問<small>132問に含まれない問題（順番どおり）</small></button>
     </div>
   </section>
 
@@ -138,7 +162,8 @@ body{padding-bottom:84px}
       <div class="count" id="pcount"></div>
       <p class="q" id="pq"></p>
       <div class="a" id="pa"></div>
-      <div class="btns">
+      <div id="pfin"></div>
+      <div class="btns" id="prow1">
         <button class="btn" id="pshow">回答を表示</button>
       </div>
       <div class="btns">
@@ -156,6 +181,29 @@ body{padding-bottom:84px}
   <section class="view" id="train">
     <h2>電車路線</h2>
     <div class="menu" id="lines"></div>
+  </section>
+
+  <section class="view" id="fare">
+    <h2>人力車料金計算方法</h2>
+    <div class="panel fare">
+      <h3>60分以下は表を暗記</h3>
+      <table class="ft">
+        <thead><tr><th></th><th>二人</th><th>一人</th></tr></thead>
+        <tbody>
+          <tr><th>10分</th><td>5,000円</td><td>4,000円</td></tr>
+          <tr><th>20分</th><td>8,000円</td><td>7,000円</td></tr>
+          <tr><th>30分</th><td>10,000円</td><td>9,000円</td></tr>
+          <tr><th>45分</th><td>15,000円</td><td>13,000円</td></tr>
+          <tr><th>60分</th><td>20,000円</td><td>16,000円</td></tr>
+        </tbody>
+      </table>
+      <h3>60分より長い場合は式を使う</h3>
+      <div class="fm"><span class="who">二人の場合</span><span class="eq">300T ＋ 2000 ＝ 料金</span></div>
+      <div class="fm"><span class="who">一人の場合</span><span class="eq">250T ＋ 1000 ＝ 料金</span></div>
+      <p class="fnote">T ＝ 乗車時間（分）</p>
+      <h3>優待の場合</h3>
+      <div class="fm off"><span class="eq">10％オフ</span></div>
+    </div>
   </section>
 
   <section class="view" id="check">
@@ -193,7 +241,7 @@ const FIVE_SRC=[
 ["浅草神社","不明","土師真中知の子孫","御祭神","三社権現（徳川家康）","商売繁盛","国重要文化財","恵比寿"],
 ["待乳山聖天","595年9月20日","慈覚大師","ご本尊","大聖歓喜天像","心願成就","都内最古","毘沙門天"],
 ["今戸神社","1063年","源頼義・義家","御祭神","応神天皇・イザナミノミコト・イザナギノミコト","縁結び","関東一の縁結び","福禄寿"],
-["牛嶋神社","860年","慈覚大師","御祭神","スサノオノミコト","心身健全","撫で牛・三輪鳥居","なし"]];
+["牛嶋神社","860年","慈覚大師","御祭神","スサノオノミコト","心身療養","撫で牛・三輪鳥居","なし"]];
 const FIVE=[];
 FIVE_SRC.forEach(t=>{const n=t[0];
  FIVE.push([n+"の一番最初の始まり（〜年〜月〜日）は？",t[1]],[n+"を創建した人は？",t[2]],[n+"の"+t[3]+"は？",t[4]],[n+"の御利益は？",t[5]],[n+"の特徴は？",t[6]],[n+"の七福神は？",t[7]]);});
@@ -232,21 +280,33 @@ const P={cfg:null,hist:[],ptr:-1,queue:[]};
 const shuffle=a=>{for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]];}return a;};
 function renderQ(){
   const i=P.hist[P.ptr],c=P.cfg;
+  P.fin=false;document.querySelector('#play .panel').classList.remove('fin');
   $('ptitle').textContent=c.title;
-  $('pcount').textContent=c.prefix?c.prefix+(i+1)+(c.label?'　［'+c.label+'］':''):(P.ptr+1)+'問目';
+  $('pcount').textContent=c.prefix?c.prefix+(i+1)+(c.label?'　［'+c.label+'］':''):(c.showTotal?(P.ptr+1)+' ／ '+(c.pool.length+(c.finale?1:0)):(P.ptr+1)+'問目');
   $('pq').textContent=c.data[i][0];
   $('pa').classList.remove('on');$('pa').textContent='';
   $('pprev').disabled=P.ptr<=0;
 }
+function showFinale(){
+  P.fin=true;
+  const f=P.cfg.finale;
+  $('pfin').innerHTML='<div class="ask">'+f.ask+'</div><h3>'+f.title+'</h3><ul>'+f.items.map(x=>'<li>'+x+'</li>').join('')+'</ul><div class="btns"><button class="btn" id="prestart">最初からやり直す</button></div>';
+  $('prestart').onclick=()=>{P.hist=[];P.ptr=-1;P.queue=[];nextQ();window.scrollTo({top:0,behavior:'smooth'});};
+  $('pcount').style.display='block';$('pcount').textContent=(P.cfg.pool.length+1)+' ／ '+(P.cfg.pool.length+1);
+  document.querySelector('#play .panel').classList.add('fin');
+  $('pprev').disabled=false;
+  window.scrollTo({top:0,behavior:'smooth'});
+}
 function nextQ(){
+  if(P.cfg.finale&&!P.fin&&P.ptr===P.hist.length-1&&P.hist.length>=P.cfg.pool.length){showFinale();return;}
   if(P.ptr<P.hist.length-1)P.ptr++;
   else{if(!P.queue.length)P.queue=P.cfg.ordered?P.cfg.pool.slice().reverse():shuffle(P.cfg.pool.slice());P.hist.push(P.queue.pop());P.ptr++;}
   renderQ();
 }
-hooks.play=e=>{P.cfg=e.cfg;P.hist=[];P.ptr=-1;P.queue=[];nextQ();};
+hooks.play=e=>{P.cfg=e.cfg;P.fin=false;P.hist=[];P.ptr=-1;P.queue=[];nextQ();};
 $('pshow').onclick=()=>{$('pa').textContent=P.cfg.data[P.hist[P.ptr]][1];$('pa').classList.add('on');};
 $('pnext').onclick=nextQ;
-$('pprev').onclick=()=>{if(P.ptr>0){P.ptr--;renderQ();}};
+$('pprev').onclick=()=>{if(P.fin){renderQ();return;}if(P.ptr>0){P.ptr--;renderQ();}};
 const range=(a,b)=>Array.from({length:b-a+1},(_,i)=>a-1+i);
 const play=cfg=>push({id:'play',cfg});
 
@@ -258,6 +318,18 @@ const play=cfg=>push({id:'play',cfg});
  c.onclick=()=>play({title:'公式の132問',data:QA,pool:range(1,132),prefix:'Q',label:'全て'});$('rangemenu').appendChild(c);}
 $('gofuku1').onclick=()=>play({title:'七福神：寺社 → 七福神',data:FUKU1,pool:range(1,FUKU1.length),prefix:''});
 $('gofuku2').onclick=()=>play({title:'七福神：七福神 → 寺社',data:FUKU2,pool:range(1,FUKU2.length),prefix:''});
+const PAST=[
+["待乳山聖天の瓦が挟まれている塀の名前は？","築地塀"],
+["浅草で芋が有名な理由は？","隅田川を用いて川越から運ばれてきたため。"],
+["浅草における各神社・仏閣の七福神を答える","1. 浅草寺 — 大黒天\n2. 浅草神社 — 恵比寿\n3. 矢先稲荷神社 — 福禄寿\n4. 鷲神社 — 寿老人\n5. 吉原神社 — 弁財天\n6. 石浜神社 — 寿老神\n7. 橋場不動尊 — 布袋尊\n8. 今戸神社 — 福禄寿\n9. 待乳山聖天 — 毘沙門天"],
+["時の鐘を歌った句は？","花の雲　鐘は上野か浅草か"],
+["鯨を食って、芸を磨け。さあ、なんてお店？","捕鯨船"],
+["ハインリッヒの法則は？","300:29:1"],
+["浅草の弁財天は〜弁天？","老女弁天"],
+["昔の人は何で時間を把握していた？","日時計"],
+["宝蔵門の草鞋は何のためにある？また、どこの草鞋？","魔除け、山形県"]];
+const PAST_FIN={ask:"分からなかったら回数が多い研修生に聞いてください！",title:"過去の記述問題リスト",items:["今日のレーンは？","今日は何の日？","我利我利亡者の話は？","人間万事塞翁が馬とは？","知行合一とは？","郷に入れば郷に従うとは？","インサイドアウト、アウトサイドインとは？","スーパーオーガニックバーガーとは何のたとえ？"]};
+$('gopast').onclick=()=>play({title:'過去問',data:PAST,pool:range(1,PAST.length),prefix:'',ordered:true,showTotal:true,finale:PAST_FIN});
 $('go5').onclick=()=>play({title:'5つのメイン寺・神社',data:FIVE,pool:range(1,FIVE.length),prefix:''});
 $('fukuul').innerHTML=FUKU.map(([p,g],i)=>'<li><span>'+(i+1)+'. '+p+'</span><b>'+g+'</b></li>').join('');
 
