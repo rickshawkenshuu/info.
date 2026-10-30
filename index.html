@@ -37,7 +37,7 @@ h2::after{content:"";position:absolute;left:50%;bottom:-1px;width:40px;height:2p
 .card small{display:block;color:var(--sub);font-size:.78rem;letter-spacing:.06em;line-height:1.6}
 .card:hover,.card:focus-visible{border-left-color:var(--ink);transform:translateY(-2px);box-shadow:0 6px 18px rgba(0,0,0,.06);outline:none}
 .menu .card{animation:fade .8s both}
-.menu .card:nth-child(1){animation-delay:.1s}.menu .card:nth-child(2){animation-delay:.2s}.menu .card:nth-child(3){animation-delay:.3s}.menu .card:nth-child(4){animation-delay:.4s}.menu .card:nth-child(5){animation-delay:.5s}
+.menu .card:nth-child(1){animation-delay:.1s}.menu .card:nth-child(2){animation-delay:.2s}.menu .card:nth-child(3){animation-delay:.3s}.menu .card:nth-child(4){animation-delay:.4s}.menu .card:nth-child(5){animation-delay:.5s}.menu .card:nth-child(6){animation-delay:.6s}.menu .card:nth-child(7){animation-delay:.7s}
 .panel{background:var(--card);border:1px solid var(--line);border-top:2px solid var(--red);border-radius:2px;padding:28px 18px;text-align:center}
 .count{color:var(--sub);font-size:.85rem;letter-spacing:.15em}
 .q{font-size:clamp(1.15rem,4.5vw,1.45rem);margin:16px 0;min-height:4.5em;display:flex;align-items:center;justify-content:center}
@@ -123,7 +123,8 @@ body{padding-bottom:84px}
       <button class="card" data-go="train">電車路線</button>
       <button class="card" data-go="fare">人力車料金計算方法</button>
       <a class="card" href="https://www.google.com/maps/d/u/0/viewer?mid=1O4N63zRXXhBYlwskBWLnWKOyMqNeOb34&hl=ja&femb=1&ll=35.713707239212994%2C139.7975229764587&z=16" target="_blank" rel="noopener noreferrer">浅草トイレマップ<small>Googleマップが開きます</small></a>
-      <button class="card" data-go="check">出勤前に確認すること</button>
+      <button class="card" data-go="check">出勤前確認事項</button>
+      <button class="card" data-go="after">出勤後確認事項</button>
     </div>
   </section>
 
@@ -207,7 +208,7 @@ body{padding-bottom:84px}
   </section>
 
   <section class="view" id="check">
-    <h2>出勤前に確認すること</h2>
+    <h2>出勤前確認事項</h2>
     <div class="panel">
       <label class="chk"><input type="checkbox"><span>今日のレーンは？</span></label>
       <label class="chk"><input type="checkbox"><span>今日のなんの日（祝日）？</span></label>
@@ -216,6 +217,20 @@ body{padding-bottom:84px}
       <label class="chk"><input type="checkbox"><span>今日自分はなぜ出勤するのか？</span></label>
       <label class="chk"><input type="checkbox"><span>会社への感謝</span></label>
       <div class="btns"><button class="btn ghost" id="reset">チェックをリセット</button></div>
+    </div>
+  </section>
+
+  <section class="view" id="after">
+    <h2>出勤後確認事項</h2>
+    <div class="panel">
+      <label class="chk"><input type="checkbox"><span>車を拭いた布を返す</span></label>
+      <label class="chk"><input type="checkbox"><span>インカムを戻す</span></label>
+      <label class="chk"><input type="checkbox"><span>名札をしまう（持ち帰らない）</span></label>
+      <label class="chk"><input type="checkbox"><span>かっぱ、傘を干す（雨の日）</span></label>
+      <label class="chk"><input type="checkbox"><span>足袋を乾かす（雨の日）</span></label>
+      <label class="chk"><input type="checkbox"><span>研修シートを書く</span></label>
+      <label class="chk"><input type="checkbox"><span>会社への感謝</span></label>
+      <div class="btns"><button class="btn ghost" id="reset2">チェックをリセット</button></div>
     </div>
   </section>
 </main>
@@ -362,6 +377,7 @@ LINES.forEach(L=>{
 });
 
 $('reset').onclick=()=>document.querySelectorAll('#check input').forEach(c=>c.checked=false);
+$('reset2').onclick=()=>document.querySelectorAll('#after input').forEach(c=>c.checked=false);
 </script>
 </body>
 </html>
