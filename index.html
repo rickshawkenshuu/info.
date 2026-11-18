@@ -37,7 +37,7 @@ h2::after{content:"";position:absolute;left:50%;bottom:-1px;width:40px;height:2p
 .card small{display:block;color:var(--sub);font-size:.78rem;letter-spacing:.06em;line-height:1.6}
 .card:hover,.card:focus-visible{border-left-color:var(--ink);transform:translateY(-2px);box-shadow:0 6px 18px rgba(0,0,0,.06);outline:none}
 .menu .card{animation:fade .8s both}
-.menu .card:nth-child(1){animation-delay:.1s}.menu .card:nth-child(2){animation-delay:.2s}.menu .card:nth-child(3){animation-delay:.3s}.menu .card:nth-child(4){animation-delay:.4s}.menu .card:nth-child(5){animation-delay:.5s}.menu .card:nth-child(6){animation-delay:.6s}.menu .card:nth-child(7){animation-delay:.7s}
+.menu .card:nth-child(1){animation-delay:.1s}.menu .card:nth-child(2){animation-delay:.2s}.menu .card:nth-child(3){animation-delay:.3s}.menu .card:nth-child(4){animation-delay:.4s}.menu .card:nth-child(5){animation-delay:.5s}.menu .card:nth-child(6){animation-delay:.6s}.menu .card:nth-child(7){animation-delay:.7s}.menu .card:nth-child(8){animation-delay:.8s}
 .panel{background:var(--card);border:1px solid var(--line);border-top:2px solid var(--red);border-radius:2px;padding:28px 18px;text-align:center}
 .count{color:var(--sub);font-size:.85rem;letter-spacing:.15em}
 .q{font-size:clamp(1.15rem,4.5vw,1.45rem);margin:16px 0;min-height:4.5em;display:flex;align-items:center;justify-content:center}
@@ -75,8 +75,16 @@ h2::after{content:"";position:absolute;left:50%;bottom:-1px;width:40px;height:2p
 a.card{text-decoration:none}
 body{padding-bottom:84px}
 .list li b{color:var(--red);font-weight:600}
+.fuku{list-style:none;margin:0;padding:0;text-align:left}
+.fuku li{display:grid;grid-template-columns:26px 1fr auto;align-items:center;gap:10px;padding:13px 2px;border-bottom:1px solid var(--line)}
+.fuku li:last-child{border-bottom:0}
+.fuku i{display:flex;align-items:center;justify-content:center;width:26px;height:26px;border:1px solid var(--line);border-radius:50%;font:600 .78rem/1 sans-serif;font-style:normal;color:var(--sub)}
+.fuku span{font-size:1.02rem;letter-spacing:.04em}
+.fuku b{color:var(--red);font-weight:700;font-size:1.02rem;letter-spacing:.08em;white-space:nowrap}
 .st .hd{margin:14px 0 4px -22px;padding:0 0 0 22px;font-weight:700;letter-spacing:.15em;color:var(--red)}
 .st .hd::before{display:none}
+.st .org{font-weight:700;font-size:1.1rem}
+.st .org::before{background:var(--red);border-color:var(--red);width:14px;height:14px;left:-12px}
 .st .sub{color:var(--sub);font-size:.8rem;padding-left:22px}
 .st .sub::before{display:none}
 .btn:disabled{opacity:.35;cursor:default}
@@ -111,7 +119,51 @@ body{padding-bottom:84px}
 .fm .eq{font-size:1.25rem;font-weight:700;letter-spacing:.08em}
 .fm.off{text-align:center}.fm.off .eq{color:var(--red)}
 .fnote{color:var(--sub);font-size:.85rem;margin-top:4px}
+.chead2{font-size:.95rem;letter-spacing:.2em;margin:18px 0 10px;text-align:center;color:var(--sub)}
+.card.off{opacity:.45;cursor:default;border-left-color:var(--line)}
+.card.off:hover{transform:none;box-shadow:none}
+.cmap{position:relative;z-index:0;height:40vh;min-height:260px;max-height:480px;border:1px solid var(--line);border-radius:2px;background:#eee;margin-bottom:14px}
+.cmap.nomap::after{content:"地図を読み込めませんでした。通信環境を確認して、開き直してください。";position:absolute;inset:0;display:flex;align-items:center;justify-content:center;padding:20px;text-align:center;color:var(--sub);font-size:.9rem}
+.cstep{padding:20px 16px}
+.chead{margin:8px 0 4px}
+.cdesc{font-size:1.15rem;font-weight:600;line-height:1.7;min-height:1.7em;margin-top:6px}
+.csub{color:var(--sub);font-size:.9rem;min-height:1.6em}
+.tt{display:inline-block;padding:2px 14px;border-radius:2px;font-weight:700;letter-spacing:.15em;font-size:1.15rem;border:2px solid var(--ink);color:var(--ink);background:#fff}
+.tt.t-right{border-color:var(--red);color:var(--red)}
+.tt.t-two{background:var(--red);border-color:var(--red);color:#fff}
+.tt.t-start,.tt.t-goal{background:var(--ink);color:#fff}
+.twosteps{display:none;text-align:left;margin:10px 0 0;padding:12px 12px 12px 34px;border:1px solid var(--red);border-radius:2px;background:#fff7f7;line-height:1.8}
+.twosteps.on{display:block}
+.clist h3{font-size:.95rem;letter-spacing:.2em;margin-bottom:8px;padding-bottom:8px;border-bottom:1px solid var(--line)}
+.slist{text-align:left;padding-left:2.2em;margin:0}
+.slist li{padding:9px 2px;border-bottom:1px solid var(--line);cursor:pointer}
+.slist li .tt{font-size:.8rem;padding:0 8px;margin-right:8px;border-width:1px}
+.slist li span{font-size:.9rem}
+.arw{background:none;border:0}
+.arw i{display:block;width:0;height:0;margin:3px auto;border-left:6px solid transparent;border-right:6px solid transparent;border-bottom:12px solid #c8161d;transform-origin:50% 50%}
+.arw.dim i{opacity:.35}
+.arw.on i,.arw.ink i{border-bottom-color:#1a1717}
+.pin{background:none;border:0}
+.pin span{display:flex;align-items:center;justify-content:center;width:24px;height:24px;border-radius:50%;background:#fff;border:2px solid #1a1717;font:700 11px/1 sans-serif;color:#1a1717;box-shadow:0 1px 3px rgba(0,0,0,.25)}
+.pin.right span{border-color:#c8161d;color:#c8161d}
+.pin.two span{background:#c8161d;border-color:#c8161d;color:#fff}
+.pin.cur span{width:30px;height:30px;margin:-3px;font-size:13px;background:#1a1717;border-color:#fff;color:#fff}
+.pin.cur.right span,.pin.cur.two span{background:#c8161d}
+.flag{background:none;border:0}
+.flag span{display:block;text-align:center;background:#1a1717;color:#fff;font:700 11px/22px sans-serif;border-radius:2px;letter-spacing:.1em}
+.flag.goal span{background:#fff;color:#1a1717;border:1px solid #1a1717;line-height:20px}
+.stopmark{background:none;border:0}
+.stopmark span{display:flex;align-items:center;justify-content:center;width:22px;height:22px;background:#c8161d;color:#fff;font:700 12px/1 sans-serif;transform:rotate(45deg)}
+.stopmark span b{transform:rotate(-45deg)}
+.slabel{background:none;border:0;width:0!important;height:0!important}
+.slabel span{position:absolute;left:0;top:0;white-space:nowrap;transform:translate(-50%,calc(-100% - 9px));background:rgba(255,255,255,.94);color:#1a1717;border:1px solid #1a1717;border-radius:2px;padding:1px 7px;font:700 12px/1.5 "Hiragino Sans","Yu Gothic",sans-serif;letter-spacing:.06em;box-shadow:0 1px 2px rgba(0,0,0,.2)}
+.slabel.v span{writing-mode:vertical-rl;transform:translate(9px,-50%);padding:7px 1px}
+.slabel.on span{background:#1a1717;color:#fff;font-size:13px}
+.svrow{margin:2px 0 4px}
+.csub:empty{display:none}
 </style>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css" crossorigin="anonymous" referrerpolicy="no-referrer">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 </head>
 <body>
 <header><span class="mark"></span><h1>研修生サイト</h1></header>
@@ -119,10 +171,10 @@ body{padding-bottom:84px}
   <section class="view on" id="home">
     <div class="menu">
       <button class="card" data-go="quizmenu">研修生一問一答</button>
+      <button class="card" data-go="courses">基準コース<small>地図で順路を確認</small></button>
       <button class="card" data-go="gourmet">浅草グルメ</button>
       <button class="card" data-go="train">電車路線</button>
       <button class="card" data-go="fare">人力車料金計算方法</button>
-      <a class="card" href="https://www.google.com/maps/d/u/0/viewer?mid=1O4N63zRXXhBYlwskBWLnWKOyMqNeOb34&hl=ja&femb=1&ll=35.713707239212994%2C139.7975229764587&z=16" target="_blank" rel="noopener noreferrer">浅草トイレマップ<small>Googleマップが開きます</small></a>
       <button class="card" data-go="check">出勤前確認事項</button>
       <button class="card" data-go="after">出勤後確認事項</button>
     </div>
@@ -154,7 +206,7 @@ body{padding-bottom:84px}
 
   <section class="view" id="fukulist">
     <h2>浅草七福神 一覧</h2>
-    <div class="panel"><ul class="list" id="fukuul"></ul></div>
+    <div class="panel"><ol class="fuku" id="fukuul"></ol></div>
   </section>
 
   <section class="view" id="play">
@@ -205,6 +257,35 @@ body{padding-bottom:84px}
       <h3>優待の場合</h3>
       <div class="fm off"><span class="eq">10％オフ</span></div>
     </div>
+  </section>
+
+  <section class="view" id="courses">
+    <h2>基準コース</h2>
+    <div id="courselist"></div>
+  </section>
+
+  <section class="view" id="coursemap">
+    <h2 id="cmtitle"></h2>
+    <div id="cmap" class="cmap"></div>
+    <div class="panel cstep" id="cstep">
+      <div class="count" id="cmcount"></div>
+      <div class="chead" id="cmhead"></div>
+      <p class="cdesc" id="cmdesc"></p>
+      <p class="csub" id="cmsub"></p>
+      <div class="svrow"><a class="lk" id="cmsv" href="#" target="_blank" rel="noopener noreferrer">この場所の景色を見る</a></div>
+      <ol class="twosteps" id="cmtwo">
+        <li>交差点を直進して、向こう側の角まで進む</li>
+        <li>角で止まり、右へ向きを変える</li>
+        <li>信号が青になるまで待つ</li>
+        <li>青になったら直進する</li>
+      </ol>
+      <div class="btns">
+        <button class="btn ghost" id="cmprev">← 前へ</button>
+        <button class="btn" id="cmnext">次へ →</button>
+      </div>
+      <div class="btns"><button class="btn ghost" id="cmall">全体を見る</button><button class="btn ghost" id="cmhome">開始地点に戻る</button></div>
+    </div>
+    <div class="panel clist" id="cmlist"></div>
   </section>
 
   <section class="view" id="check">
@@ -266,10 +347,10 @@ const WALK_GENRES=["和菓子","スイーツ","揚げ物","ドリンク","軽食
 const GOURMET={rice:{name:'ご飯屋さん',genres:RICE_GENRES,shops:RICE.map(([n,g,h,p,d])=>({n,g,h,p,d}))},walk:{name:'食べ歩き',genres:WALK_GENRES,shops:WALK.map(([n,g,h,p,d])=>({n,g,h,p,d}))}};
 
 const LINES=[
-{n:"都営浅草線",r:"羽田から成田まで<br>羽田空港 → 成田空港",st:[["#","京急線"],["","羽田空港第1・第2ターミナル"],["","羽田空港第3ターミナル"],["","天空橋"],["","穴守稲荷"],["","大鳥居"],["","糀谷"],["","京急蒲田"],["","雑色"],["","六郷土手"],["","京急川崎"],["","八丁畷"],["","鶴見市場"],["","京急鶴見"],["","花月総持寺"],["","生麦"],["","京急新子安"],["","子安"],["","神奈川新町"],["","京急東神奈川"],["","神奈川"],["","新馬場"],["","北品川"],["","品川"],["","泉岳寺"],["#","都営浅草線"],["","泉岳寺"],["","三田"],["","大門"],["","新橋"],["","東銀座"],["","宝町"],["","日本橋"],["","人形町"],["","東日本橋"],["","浅草橋"],["","蔵前"],["","浅草"],["","本所吾妻橋"],["","押上"],["#","京成線・成田空港方面"],["","押上"],["","青砥"],["","京成高砂"],["","新柴又"],["~","矢切方面（北総線経由）"],["","東松戸"],["","新鎌ヶ谷"],["","千葉ニュータウン中央"],["","印旛日本医大"],["","成田湯川"],["","空港第2ビル"],["","成田空港"]]},
-{n:"銀座線",r:"浅草から渋谷まで",st:"G19 浅草,G18 田原町,G17 稲荷町,G16 上野,G15 上野広小路,G14 末広町,G13 神田,G12 三越前,G11 日本橋,G10 京橋,G09 銀座,G08 新橋,G07 虎ノ門,G06 溜池山王,G05 赤坂見附,G04 青山一丁目,G03 外苑前,G02 表参道,G01 渋谷".split(',').map(s=>s.split(' '))},
+{n:"都営浅草線",r:"羽田から成田まで<br>羽田空港 → 成田空港",st:[["#", "京急線"], ["", "羽田空港第1・第2ターミナル"], ["", "羽田空港第3ターミナル"], ["", "天空橋"], ["", "穴守稲荷"], ["", "大鳥居"], ["", "糀谷"], ["", "京急蒲田"], ["", "雑色"], ["", "六郷土手"], ["", "京急川崎"], ["", "八丁畷"], ["", "鶴見市場"], ["", "京急鶴見"], ["", "花月総持寺"], ["", "生麦"], ["", "京急新子安"], ["", "子安"], ["", "神奈川新町"], ["", "京急東神奈川"], ["", "神奈川"], ["", "新馬場"], ["", "北品川"], ["", "品川"], ["", "泉岳寺"], ["#", "都営浅草線"], ["", "泉岳寺"], ["", "三田"], ["", "大門"], ["", "新橋"], ["", "東銀座"], ["", "宝町"], ["", "日本橋"], ["", "人形町"], ["", "東日本橋"], ["", "浅草橋"], ["", "蔵前"], ["", "浅草"], ["", "本所吾妻橋"], ["", "押上"], ["#", "京成線・成田空港方面"], ["", "押上"], ["", "青砥"], ["", "京成高砂"], ["", "新柴又"], ["~", "矢切方面（北総線経由）"], ["", "東松戸"], ["", "新鎌ヶ谷"], ["", "千葉ニュータウン中央"], ["", "印旛日本医大"], ["", "成田湯川"], ["", "空港第2ビル"], ["", "成田空港"]]},
+{n:"銀座線",r:"浅草から渋谷まで<br>浅草 → 渋谷",st:"G19 浅草,G18 田原町,G17 稲荷町,G16 上野,G15 上野広小路,G14 末広町,G13 神田,G12 三越前,G11 日本橋,G10 京橋,G09 銀座,G08 新橋,G07 虎ノ門,G06 溜池山王,G05 赤坂見附,G04 青山一丁目,G03 外苑前,G02 表参道,G01 渋谷".split(',').map(s=>s.split(' '))},
 {n:"東武線",r:"浅草から伊勢崎まで<br>浅草 → 伊勢崎",st:[["","浅草"],["","とうきょうスカイツリー"],["","曳舟"],["","東向島"],["","鐘ケ淵"],["","堀切"],["","牛田"],["","北千住"],["","小菅"],["","五反野"],["","梅島"],["","西新井"],["","竹ノ塚"],["","谷塚"],["","草加"],["","獨協大学前〈草加松原〉"],["","新田"],["","蒲生"],["","新越谷"],["","越谷"],["","北越谷"],["","大袋"],["","せんげん台"],["","武里"],["","一ノ割"],["","春日部"],["","北春日部"],["","姫宮"],["","東武動物公園"],["","和戸"],["","久喜"],["","鷲宮"],["","花崎"],["","加須"],["","南羽生"],["","羽生"],["","川俣"],["","茂林寺前"],["","館林"],["","多々良"],["","県"],["","福居"],["","東武和泉"],["","足利市"],["","野州山辺"],["","韮川"],["","太田"],["","細谷"],["","木崎"],["","世良田"],["","境町"],["","剛志"],["","新伊勢崎"],["","伊勢崎"]]},
-{n:"つくばエクスプレス",r:"秋葉原から筑波まで",st:"TX01 秋葉原,TX02 新御徒町,TX03 浅草,TX04 南千住,TX05 北千住,TX06 青井,TX07 六町,TX08 八潮,TX09 三郷中央,TX10 南流山,TX11 流山セントラルパーク,TX12 流山おおたかの森,TX13 柏の葉キャンパス,TX14 柏たなか,TX15 守谷,TX16 みらい平,TX17 みどりの,TX18 万博記念公園,TX19 研究学園,TX20 つくば".split(',').map(s=>s.split(' '))}
+{n:"つくばエクスプレス",r:"秋葉原から筑波まで<br>秋葉原 → つくば",st:[["TX01", "秋葉原"], ["TX02", "新御徒町"], ["TX03", "浅草"], ["TX04", "南千住"], ["TX05", "北千住"], ["TX06", "青井"], ["TX07", "六町"], ["TX08", "八潮"], ["TX09", "三郷中央"], ["TX10", "南流山"], ["TX11", "流山セントラルパーク"], ["TX12", "流山おおたかの森"], ["TX13", "柏の葉キャンパス"], ["TX14", "柏たなか"], ["TX15", "守谷"], ["TX16", "みらい平"], ["TX17", "みどりの"], ["TX18", "万博記念公園"], ["TX19", "研究学園"], ["TX20", "つくば"]]},
 ];
 
 // ===== 画面遷移（履歴スタック）=====
@@ -346,7 +427,7 @@ const PAST=[
 const PAST_FIN={ask:"分からなかったら回数が多い研修生に聞いてください！",title:"過去の記述問題リスト",items:["今日のレーンは？","今日は何の日？","我利我利亡者の話は？","人間万事塞翁が馬とは？","知行合一とは？","郷に入れば郷に従うとは？","インサイドアウト、アウトサイドインとは？","スーパーオーガニックバーガーとは何のたとえ？"]};
 $('gopast').onclick=()=>play({title:'過去問',data:PAST,pool:range(1,PAST.length),prefix:'',ordered:true,showTotal:true,finale:PAST_FIN});
 $('go5').onclick=()=>play({title:'5つのメイン寺・神社',data:FIVE,pool:range(1,FIVE.length),prefix:''});
-$('fukuul').innerHTML=FUKU.map(([p,g],i)=>'<li><span>'+(i+1)+'. '+p+'</span><b>'+g+'</b></li>').join('');
+$('fukuul').innerHTML=FUKU.map(([p,g],i)=>'<li><i>'+(i+1)+'</i><span>'+p+'</span><b>'+g+'</b></li>').join('');
 
 // ===== 浅草グルメ（種類 → 系統 → 店名 → 店情報）=====
 const body=$('gbody'),gtitle=$('gtitle');
@@ -371,13 +452,232 @@ LINES.forEach(L=>{
   c.addEventListener('click',()=>c.classList.add('open'));
   b.addEventListener('click',e=>{e.stopPropagation();
     if(map.innerHTML){map.innerHTML='';b.textContent='路線図を表示';return;}
-    map.innerHTML='<ul class="st">'+L.st.map(([cd,nm,nt])=>cd==='#'?'<li class="hd">'+nm+'</li>':cd==='~'?'<li class="sub">'+nm+'</li>':'<li>'+(cd?'<span class="cd">'+cd+'</span>':'')+nm+(nt?'<span class="nt">'+nt+'</span>':'')+'</li>').join('')+'</ul>';
-    b.textContent='路線図を閉じる';});
+    map.innerHTML='<ul class="st">'+L.st.map(([cd,nm,nt])=>cd==='#'?'<li class="hd">'+nm+'</li>':cd==='~'?'<li class="sub">'+nm+'</li>':'<li data-n="'+nm+'">'+(cd?'<span class="cd">'+cd+'</span>':'')+nm+(nt?'<span class="nt">'+nt+'</span>':'')+'</li>').join('')+'</ul>';
+    b.textContent='路線図を閉じる';
+    // 浅草の行を目立たせて、画面の中央に来るように送る
+    const here=[...map.querySelectorAll('.st li')].find(li=>li.dataset.n==='浅草');
+    if(here){here.classList.add('org');setTimeout(()=>here.scrollIntoView({block:'center',behavior:'smooth'}),60);}
+  });
   $('lines').appendChild(c);
 });
 
 $('reset').onclick=()=>document.querySelectorAll('#check input').forEach(c=>c.checked=false);
 $('reset2').onclick=()=>document.querySelectorAll('#after input').forEach(c=>c.checked=false);
+// ===== 基準コース（地図：Leaflet＋地理院タイル）=====
+// coords は [緯度, 経度]。two は二段階右折の地点番号（1始まり）。
+// stops があるコースは、その地点だけをステップにする（p＝線の点の番号、t＝動き、n＝説明、s＝次の地点までの通りの名前を直接指定）。線の形は coords のまま。
+const COURSES=[
+ {id:'w1',side:'西',name:'西1区（10分）戻り',two:[],stops:[{p:1,t:'start',n:'出発レーン'},{p:2,t:'two',n:'横断歩道で二段階右折'},{p:3,t:'two',n:'横断歩道で二段階右折'},{p:5,t:'uturn',n:'雷門仲通りでUターン'},{p:6,t:'uturn',n:'雷門仲通りでUターン'},{p:7,t:'uturn',n:'雷門仲通りでUターン'},{p:8,t:'go',n:'オレンジ通りを直進'},{p:9,t:'left',n:'たぬき通りにて左折'},{p:10,t:'right',n:'公園本通りにて右折'},{p:14,t:'right',n:'伝法院通りを右折'},{p:18,t:'right',n:'浅草中央通りを右折'},{p:19,t:'right',n:'雷門柳小路を右折'},{p:20,t:'left',n:'オレンジ通りを左折'},{p:21,t:'merge',n:'雷門通りに合流'},{p:22,t:'goal',n:'終着地'}],coords:[[35.7108945, 139.7967793], [35.7108162, 139.7974014], [35.7106888, 139.7973523], [35.7108057, 139.7964033], [35.7110264, 139.7946692], [35.7108599, 139.7946364], [35.7108704, 139.7945459], [35.711251, 139.7946315], [35.7118581, 139.7947453], [35.7120183, 139.7939322], [35.7122039, 139.7940791], [35.7124065, 139.7942175], [35.7125729, 139.7943041], [35.7129052, 139.7944], [35.7128386, 139.7945973], [35.7128128, 139.794782], [35.7128064, 139.7952894], [35.7128074, 139.7957232], [35.7115911, 139.7955563], [35.7116877, 139.7947842], [35.7111614, 139.7946844], [35.7109088, 139.7966646]]},
+ {id:'w2',side:'西',name:'西2区（20分）戻り',two:[],stops:[{p:1,n:'出発レーン'},{p:2,n:'横断歩道で二段階右折'},{p:3,n:'横断歩道で二段階右折'},{p:5,n:'雷門仲通りでUターン'},{p:6,n:'雷門仲通りでUターン'},{p:7,n:'雷門仲通りでUターン',s:'オレンジ通り'},{p:9,n:'伝法院通りを右折'},{p:11,n:'浅草中央通りを右折'},{p:12,n:'雷門柳小路を右折'},{p:13,n:'オレンジ通りを右折'},{p:14,n:'たぬき通りを左折'},{p:15,n:'公園本通りにて右折'},{p:18,n:'六区通りを左折'},{p:19,n:'国際通りに出る'},{p:20,n:'国際通りを左折'},{p:22,n:'雷門通りを左折'},{p:24,n:'終着地'}],coords:[[35.7109024, 139.796729], [35.7108162, 139.7974014], [35.7106888, 139.7973523], [35.7108133, 139.7963753], [35.7110264, 139.7946692], [35.7108739, 139.7946407], [35.710886, 139.794551], [35.7125347, 139.7948974], [35.7128807, 139.794974], [35.7128702, 139.7951386], [35.7128627, 139.7957401], [35.7115911, 139.7955563], [35.7116993, 139.794713], [35.7118581, 139.7947453], [35.7120243, 139.7938621], [35.7120934, 139.793943], [35.712558, 139.7942587], [35.7129523, 139.794353], [35.713603, 139.793199], [35.7137227, 139.79252], [35.7131565, 139.7924209], [35.7114854, 139.792107], [35.7113936, 139.7929522], [35.7109131, 139.7966252]]},
+ {id:'w30',side:'西',name:'西30分戻り',two:[],stops:[{p:1,n:'出発レーン'},{p:2,n:'横断歩道で二段階右折'},{p:3,n:'横断歩道で二段階右折'},{p:4,n:'雷門仲通りでUターン'},{p:5,n:'雷門仲通りでUターン'},{p:6,n:'雷門仲通りでUターン',s:'オレンジ通り'},{p:7,n:'伝法院通りを右折'},{p:8,n:'浅草中央通りを右折'},{p:9,n:'雷門柳小路を右折'},{p:10,n:'オレンジ通りを右折'},{p:11,n:'たぬき通りを左折'},{p:12,n:'公園本通りにて右折'},{p:15,n:'六区通りを左折'},{p:16,n:'奥山おまいりまちを右折'},{p:18,n:'ホッピー通りを左折'},{p:19,n:'花やしき通りを左折'},{p:20,n:'国際通りを左折'},{p:25,n:'雷門通りを左折'},{p:26,n:'終着地'}],coords:[[35.7109088, 139.7966646], [35.7107813, 139.7975917], [35.7106381, 139.7975122], [35.7110122, 139.7946595], [35.7108599, 139.7946364], [35.7108704, 139.7945459], [35.7128409, 139.7949671], [35.7128074, 139.7957232], [35.7115911, 139.7955563], [35.7117044, 139.7947773], [35.7118523, 139.7948176], [35.7120109, 139.7939065], [35.7124432, 139.7942175], [35.7126941, 139.7943435], [35.7129255, 139.7944132], [35.7136159, 139.7931401], [35.7138206, 139.7936591], [35.7140601, 139.7941137], [35.7153022, 139.7938419], [35.7151987, 139.7926807], [35.7147176, 139.7926539], [35.7142366, 139.792611], [35.7132745, 139.7924502], [35.7123146, 139.7922545], [35.7114854, 139.792107], [35.7109222, 139.7965676]]},
+ {id:'e1',side:'東',name:'東1区（10分）戻り',two:[],stops:[{p:1,n:'出発レーン'},{p:2,n:'吾妻橋交差点を渡る'},{p:3,n:'助六夢通りに向かう'},{p:4,n:'助六夢通りで左折'},{p:14,n:'東二天門通りで左折'},{p:15,n:'江戸通りを左折'},{p:22,n:'吾妻橋交差点で二段階右折'},{p:23,n:'吾妻橋交差点で二段階右折'},{p:24,n:'雷門通りを直進'},{p:25,n:'雷門前の横断歩道でUターン'},{p:27,n:'終着地'}],coords:[[35.7109024, 139.796729], [35.7107942, 139.7975537], [35.7107343, 139.7979249], [35.7106577, 139.7981523], [35.7108003, 139.7982353], [35.7114048, 139.798732], [35.7119256, 139.7991866], [35.7126496, 139.799871], [35.7129016, 139.8001207], [35.7131387, 139.8004327], [35.7132795, 139.8006209], [35.7133779, 139.800734], [35.7135056, 139.800853], [35.7136321, 139.8009746], [35.7137097, 139.8006465], [35.713363, 139.8002464], [35.7131815, 139.8000497], [35.7130163, 139.7998463], [35.7127813, 139.799605], [35.7123085, 139.7991596], [35.7108088, 139.7978908], [35.7107757, 139.797894], [35.7106168, 139.7978194], [35.7106734, 139.7975037], [35.7107843, 139.7966057], [35.7109131, 139.7966252], [35.7109088, 139.7966646]]},
+ {id:'e2',side:'東',name:'東2区（20分）戻り',two:[],stops:[{p:1,n:'出発レーン'},{p:2,n:'吾妻橋交差点を渡る'},{p:3,n:'助六夢通りに向かう'},{p:5,n:'助六夢通りで左折'},{p:16,n:'東二天門通りで左折'},{p:17,n:'江戸通りを左折'},{p:24,n:'Uターン'},{p:27,n:'東の伝法院通りを直進'},{p:32,n:'メトロ通りを右折'},{p:37,n:'弁天堂前を右折'},{p:39,n:'弁天堂・時の鐘ガイド'},{p:44,n:'東二天門通りを右折'},{p:46,n:'二天門ガイド'},{p:47,n:'馬道を一段階右折'},{p:56,n:'吾妻橋交差点で二段階右折'},{p:57,n:'吾妻橋交差点で二段階右折'},{p:58,n:'雷門通りを直進'},{p:59,n:'雷門前の横断歩道でUターン'},{p:61,n:'終着地'}],coords:[[35.7108862, 139.7968569], [35.7107942, 139.7975537], [35.7107534, 139.7979028], [35.710693, 139.7980451], [35.7106756, 139.7981603], [35.7107418, 139.7981923], [35.7108667, 139.7982971], [35.7111259, 139.7984948], [35.7113125, 139.7986461], [35.7115984, 139.7989056], [35.7121266, 139.799367], [35.7127801, 139.7999962], [35.7129684, 139.8002065], [35.7133018, 139.8006475], [35.7133779, 139.800734], [35.7136321, 139.8009746], [35.7137016, 139.800659], [35.713634, 139.800561], [35.7130856, 139.7999489], [35.7129099, 139.7997387], [35.7127982, 139.7996251], [35.7126684, 139.7995175], [35.7124065, 139.7992446], [35.7123722, 139.7992368], [35.7123109, 139.7993386], [35.7122694, 139.7992926], [35.7123288, 139.7991882], [35.7124519, 139.7989779], [35.7125118, 139.7986543], [35.7126414, 139.7979418], [35.7127326, 139.7972373], [35.7127286, 139.7971359], [35.7128071, 139.7971558], [35.7129187, 139.7971651], [35.7131358, 139.7971833], [35.713523, 139.7972394], [35.7135534, 139.7972351], [35.7135905, 139.797459], [35.7135974, 139.7975525], [35.7136301, 139.7975015], [35.713719, 139.797521], [35.7139854, 139.7975799], [35.7140979, 139.7976153], [35.714334, 139.7976653], [35.714307, 139.7978533], [35.7143833, 139.7978711], [35.7143421, 139.7981061], [35.7143113, 139.7982707], [35.7141998, 139.7983022], [35.7138019, 139.7982016], [35.7130614, 139.7980195], [35.7127195, 139.7979378], [35.7125062, 139.7979143], [35.7121151, 139.7978729], [35.7109905, 139.797808], [35.7107757, 139.797894], [35.7106168, 139.7978194], [35.7106734, 139.7975037], [35.7107843, 139.7966057], [35.7109131, 139.7966252], [35.7108945, 139.7967793]]},
+ {id:'e30',side:'東',name:'東30分戻り',two:[],stops:[{p:1,n:'出発レーン'},{p:2,n:'吾妻橋交差点を渡る'},{p:3,n:'助六夢通りに向かう'},{p:4,n:'助六夢通りで左折'},{p:10,n:'東二天門通りで左折'},{p:11,n:'江戸通りを左折'},{p:13,n:'Uターン'},{p:16,n:'東の伝法院通りを直進'},{p:19,n:'メトロ通りを右折'},{p:21,n:'弁天堂前を右折'},{p:22,n:'弁天堂・時の鐘ガイド'},{p:24,n:'二天門ガイド'},{p:25,n:'馬道を左折'},{p:26,n:'浅草神社入口を左折'},{p:29,n:'浅草寺、浅草神社ガイド'},{p:32,n:'馬道を左折'},{p:33,n:'Uターン'},{p:34,n:'Uターン'},{p:37,n:'吾妻橋交差点で二段階右折'},{p:38,n:'吾妻橋交差点で二段階右折'},{p:39,n:'雷門通りを直進'},{p:40,n:'雷門前の横断歩道でUターン'},{p:42,n:'終着地'}],coords:[[35.7108862, 139.7968569], [35.7107942, 139.7975537], [35.7107367, 139.797895], [35.7106577, 139.7981523], [35.7108003, 139.7982353], [35.7114048, 139.798732], [35.7118526, 139.7991298], [35.7128603, 139.8000806], [35.7133711, 139.8007487], [35.7136321, 139.8009746], [35.7136926, 139.8006444], [35.7129257, 139.7997581], [35.7123785, 139.7992231], [35.7123109, 139.7993386], [35.7122694, 139.7992926], [35.7123288, 139.7991882], [35.7124556, 139.7989657], [35.7126414, 139.7979418], [35.7127416, 139.7971424], [35.7131741, 139.797188], [35.7135571, 139.7972466], [35.7136041, 139.7974997], [35.7140047, 139.7975863], [35.7144066, 139.7977315], [35.7143354, 139.7981665], [35.7152329, 139.7983928], [35.715251, 139.7983346], [35.7153078, 139.7979839], [35.7148989, 139.7973438], [35.7149314, 139.7973212], [35.715328, 139.7979794], [35.7152575, 139.7984008], [35.7156748, 139.7985099], [35.7156392, 139.798682], [35.7127066, 139.7979031], [35.7109905, 139.797808], [35.7107757, 139.797894], [35.7106168, 139.7978194], [35.7106734, 139.7975037], [35.7107843, 139.7966057], [35.7109131, 139.7966252], [35.7108945, 139.7967793]]}
+];
+const GEO={
+ dist(a,b){const la=(a[0]+b[0])/2*Math.PI/180,x=(b[1]-a[1])*Math.PI/180*Math.cos(la),y=(b[0]-a[0])*Math.PI/180;return 6371000*Math.hypot(x,y);},
+ brg(a,b){const la=(a[0]+b[0])/2*Math.PI/180,x=(b[1]-a[1])*Math.cos(la),y=b[0]-a[0];return (Math.atan2(x,y)*180/Math.PI+360)%360;},
+ move(p,b,m){const r=b*Math.PI/180;return [p[0]+m*Math.cos(r)/111320,p[1]+m*Math.sin(r)/(111320*Math.cos(p[0]*Math.PI/180))];}
+};
+const DIR8=['北','北東','東','南東','南','南西','西','北西'];
+const dir8=b=>DIR8[Math.round(b/45)%8];
+const r10=m=>Math.max(10,Math.round(m/10)*10);
+const TITLE={start:'出発',goal:'到着',straight:'道なり',go:'直進',right:'右折',left:'左折',uturn:'Uターン',two:'二段階右折',merge:'合流'};
+// 説明から通りの名前を取り出す（例：「伝法院通りを右折」→ 伝法院通り）。その地点から次の地点までの区間に表示する。
+const STREET_RE=/^(.*?(?:通り|小路|まち|馬道))(?:を|にて|で|に合流)/;
+function streetOf(d){
+ if(!d||/Uターン/.test(d)||!/(右折|左折|直進|合流)/.test(d))return '';
+ const m=d.match(STREET_RE);return m?m[1].replace(/^東の/,''):'';
+}
+// 線の点 a〜b の道のりの真ん中の位置と、そこでの向き
+function midAlong(P,a,b){
+ let tot=0;for(let q=a;q<b;q++)tot+=GEO.dist(P[q],P[q+1]);
+ let h=tot/2;
+ for(let q=a;q<b;q++){const d=GEO.dist(P[q],P[q+1]);if(h<=d||q===b-1){const t=d?Math.min(1,h/d):0;return {len:tot,b:GEO.brg(P[q],P[q+1]),p:[P[q][0]+(P[q+1][0]-P[q][0])*t,P[q][1]+(P[q+1][1]-P[q][1])*t]};}h-=d;}
+ return {len:0,b:0,p:P[a]};
+}
+function buildStops(c){
+ const P=c.coords,n=P.length;
+ return c.stops.map((x,j,A)=>{
+  const i=x.p-1,nx=j<A.length-1?A[j+1].p-1:i;
+  let m=0;for(let q=i;q<nx;q++)m+=GEO.dist(P[q],P[q+1]);
+  const inB=i>0?GEO.brg(P[i-1],P[i]):0,outB=i<n-1?GEO.brg(P[i],P[i+1]):inB;
+  let t=x.t;
+  if(!t){if(j===0)t='start';else if(j===A.length-1)t='goal';else{const dt=((outB-inB+540)%360)-180;t=Math.abs(dt)<30?'go':Math.abs(dt)>150?'uturn':(dt>0?'right':'left');}}
+  return {i,type:t,title:'',inB,outB,desc:x.n||'',sub:'',street:x.s||streetOf(x.n)};
+ });
+}
+function buildSteps(c){
+ if(c.stops)return buildStops(c);
+ const P=c.coords,n=P.length,S=[];
+ const seg=i=>({b:GEO.brg(P[i],P[i+1]),m:GEO.dist(P[i],P[i+1])});
+ const go=x=>dir8(x.b)+'へ約'+r10(x.m)+'m進む';
+ S.push({i:0,type:'start',outB:seg(0).b,desc:'ここから出発。'+go(seg(0))});
+ for(let i=1;i<n-1;i++){
+  const a=seg(i-1),b=seg(i),dt=((b.b-a.b+540)%360)-180;
+  let type=Math.abs(dt)<30?'straight':Math.abs(dt)>150?'uturn':(dt>0?'right':'left');
+  if((c.two||[]).includes(i+1))type='two';
+  S.push({i,type,inB:a.b,outB:b.b,desc:(type==='straight'?'そのまま':'ここを'+TITLE[type]+'。')+go(b)});
+ }
+ S.push({i:n-1,type:'goal',inB:seg(n-2).b,desc:'ここで到着'});
+ S.forEach(x=>x.title=TITLE[x.type]);
+ return S;
+}
+const CM={zoom:18,map:null,layers:null,lab:null,c:null,steps:[],k:0,mode:'step'};
+function ensureMap(){
+ if(CM.map)return true;
+ if(typeof L==='undefined')return false;
+ CM.map=L.map('cmap',{zoomControl:true});
+ L.tileLayer('https://cyberjapandata.gsi.go.jp/xyz/pale/{z}/{x}/{y}.png',{maxZoom:20,maxNativeZoom:18,
+   attribution:'<a href="https://maps.gsi.go.jp/development/ichiran.html" target="_blank" rel="noopener noreferrer">地理院タイル</a>'}).addTo(CM.map);
+ CM.layers=L.layerGroup().addTo(CM.map);
+ CM.lab=L.layerGroup().addTo(CM.map);
+ CM.map.on('moveend zoomend',drawLabels);
+ // ステップ表示で手で変えた倍率を覚えておき、「次へ」でもその倍率のまま移動する
+ CM.map.on('zoomend',()=>{if(CM.mode==='step')CM.zoom=CM.map.getZoom();});
+ return true;
+}
+const arrowIcon=(b,cls)=>L.divIcon({className:'arw '+(cls||''),html:'<i style="transform:rotate('+b.toFixed(0)+'deg)"></i>',iconSize:[18,18],iconAnchor:[9,9]});
+const pinIcon=(t,cls)=>L.divIcon({className:'pin '+(cls||''),html:'<span>'+t+'</span>',iconSize:[24,24],iconAnchor:[12,12]});
+const midOf=(a,b)=>[(a[0]+b[0])/2,(a[1]+b[1])/2];
+function drawTwo(g,s,C){
+ const A=GEO.move(C,s.inB+180,24),B=GEO.move(C,s.inB,14),D=GEO.move(B,s.outB,28);
+ L.polyline([A,B],{color:'#1a1717',weight:4}).addTo(g);
+ L.polyline([B,D],{color:'#1a1717',weight:4,dashArray:'6 6'}).addTo(g);
+ L.marker(midOf(A,B),{icon:arrowIcon(GEO.brg(A,B),'ink'),interactive:false}).addTo(g);
+ L.marker(midOf(B,D),{icon:arrowIcon(GEO.brg(B,D),'ink'),interactive:false}).addTo(g);
+ L.marker(B,{icon:L.divIcon({className:'stopmark',html:'<span><b>止</b></span>',iconSize:[22,22],iconAnchor:[11,11]}),interactive:false,zIndexOffset:900}).addTo(g);
+}
+// 通りの名前：区間のうち、いま画面に見えている部分の真ん中に置く（地図を動かすたびに置き直す）
+function labelPos(P,a,b,bd){
+ const smp=[];let tot=0;
+ for(let q=a;q<b;q++){
+  const d=GEO.dist(P[q],P[q+1]),br=GEO.brg(P[q],P[q+1]),n=Math.max(1,Math.round(d/4));
+  for(let t=0;t<n;t++)smp.push({p:[P[q][0]+(P[q+1][0]-P[q][0])*t/n,P[q][1]+(P[q+1][1]-P[q][1])*t/n],b:br});
+  tot+=d;
+ }
+ if(tot<12||!smp.length)return null;
+ if(!bd)return smp[Math.floor(smp.length/2)];
+ let best=null,st=-1;
+ for(let x=0;x<=smp.length;x++){
+  const vis=x<smp.length&&bd.contains(smp[x].p);
+  if(vis&&st<0)st=x;
+  if(!vis&&st>=0){if(!best||x-st>best[1]-best[0])best=[st,x];st=-1;}
+ }
+ if(!best||best[1]-best[0]<2)return null;
+ return smp[Math.floor((best[0]+best[1])/2)];
+}
+function drawLabels(){
+ if(!CM.map||!CM.lab||!CM.c)return;
+ const g=CM.lab;g.clearLayers();
+ const P=CM.c.coords,S=CM.steps,k=CM.k,all=CM.mode==='all';
+ // 引きの地図（全体表示など）では文字が重なって読めないので、通りの名前は出さない。拡大すると出る。
+ let z=18;try{z=CM.map.getZoom();}catch(e){}
+ if(z<17)return;
+ let bd=null;try{bd=CM.map.getBounds().pad(-0.05);}catch(e){}
+ const cand=[];
+ S.forEach((s,j)=>{
+  if(!s.street||j>=S.length-1)return;
+  const a=s.i,b=S[j+1].i;if(b<=a)return;
+  const pos=labelPos(P,a,b,bd);if(!pos)return;
+  cand.push({name:s.street,pos,on:!all&&j===k});
+ });
+ // 同じ名前が近く（45m以内）に重なるときは1つだけ出す。今から進む区間を優先。
+ cand.sort((x,y)=>(y.on?1:0)-(x.on?1:0));
+ const put=[];
+ cand.forEach(c=>{
+  if(put.some(q=>q.name===c.name&&GEO.dist(q.pos.p,c.pos.p)<45))return;
+  put.push(c);
+  const vert=Math.abs(Math.sin(c.pos.b*Math.PI/180))<0.5;
+  L.marker(c.pos.p,{icon:L.divIcon({className:'slabel'+(vert?' v':'')+(c.on?' on':''),html:'<span>'+c.name+'</span>',iconSize:[0,0]}),interactive:false,keyboard:false,zIndexOffset:c.on?800:500}).addTo(g);
+ });
+}
+function drawCourse(){
+ const g=CM.layers;g.clearLayers();
+ const P=CM.c.coords,S=CM.steps,k=CM.k,all=CM.mode==='all',cur=S[k].i;
+ const nx=(!all&&k<S.length-1)?S[k+1].i:cur;
+ L.polyline(P,{color:'#c8161d',weight:5,opacity:all?.9:.22}).addTo(g);
+ if(!all){
+  if(cur>0)L.polyline(P.slice(0,cur+1),{color:'#c8161d',weight:6,opacity:.95}).addTo(g);
+  if(nx>cur)L.polyline(P.slice(cur,nx+1),{color:'#1a1717',weight:5,dashArray:'8 8'}).addTo(g);
+ }
+ for(let i=0;i<P.length-1;i++){
+  if(GEO.dist(P[i],P[i+1])<35)continue;
+  const cls=all?'':(i>=cur&&i<nx?'on':(i<cur?'':'dim'));
+  L.marker(midOf(P[i],P[i+1]),{icon:arrowIcon(GEO.brg(P[i],P[i+1]),cls),interactive:false,keyboard:false}).addTo(g);
+ }
+ L.marker(P[0],{icon:L.divIcon({className:'flag',html:'<span>出発</span>',iconSize:[44,22],iconAnchor:[22,34]}),interactive:false}).addTo(g);
+ L.marker(P[P.length-1],{icon:L.divIcon({className:'flag goal',html:'<span>到着</span>',iconSize:[44,22],iconAnchor:[22,-12]}),interactive:false}).addTo(g);
+ if(all){
+  S.forEach((s,j)=>{if(s.type==='start'||s.type==='goal')return;
+   L.marker(P[s.i],{icon:pinIcon(j+1,s.type)}).on('click',()=>{CM.mode='step';CM.k=j;renderCM();}).addTo(g);});
+  CM.map.fitBounds(L.latLngBounds(P),{padding:[24,24]});
+ }else{
+  const s=S[k];
+  L.marker(P[cur],{icon:pinIcon(k+1,'cur '+s.type),zIndexOffset:1000,interactive:false}).addTo(g);
+  CM.map.setView(P[cur],CM.zoom,{animate:true});
+ }
+ drawLabels();
+}
+function renderCM(){
+ const S=CM.steps,k=CM.k,s=S[k],all=CM.mode==='all';
+ $('cstep').style.display=all?'none':'';
+ $('cmlist').style.display=all?'':'none';
+ if(all){
+  $('cmlist').innerHTML='<h3>地点の一覧</h3><ol class="slist">'+S.map((x,j)=>'<li data-j="'+j+'">'+(x.title?'<b class="tt t-'+x.type+'">'+x.title+'</b>':'')+'<span>'+x.desc+'</span></li>').join('')+'</ol><div class="btns"><button class="btn" id="cmback">ステップ表示に戻る</button></div>';
+  $('cmlist').querySelectorAll('li').forEach(li=>li.onclick=()=>{CM.mode='step';CM.k=+li.dataset.j;renderCM();window.scrollTo({top:0,behavior:'smooth'});});
+  $('cmback').onclick=()=>{CM.mode='step';renderCM();window.scrollTo({top:0,behavior:'smooth'});};
+ }else{
+  $('cmcount').textContent=(k+1)+' ／ '+S.length;
+  $('cmhead').innerHTML=s.title?'<span class="tt t-'+s.type+'">'+s.title+'</span>':'';
+  $('cmdesc').textContent=s.desc;
+  $('cmsub').textContent=s.sub||'';
+  // ストリートビュー：その地点に着くときの向き（出発だけは進む向き）で開く
+  {const pt=CM.c.coords[s.i],hd=Math.round(((k===0?s.outB:s.inB)||0)%360);
+   // スマホのGoogleマップは、近くの投稿写真（空中・地下など）を選んでしまい、道路の景色に限定する指定がURLではできない。
+   // そのためスマホでは、その地点をGoogleマップの地図（ピン）で開く。PCはストリートビューを直接開く。
+   // スマホの判定：端末名のほか、LINEなどのアプリ内ブラウザ、指で操作する画面（タッチ）も対象にする
+   const ua=navigator.userAgent||'';
+   const mobile=/iPhone|iPad|iPod|Android|Mobile|Line\//i.test(ua)
+     ||(navigator.maxTouchPoints>1&&/Macintosh/.test(ua))
+     ||(window.matchMedia&&window.matchMedia('(pointer:coarse)').matches);
+   $('cmsv').textContent=mobile?'この場所をGoogleマップで開く':'この場所の景色を見る';
+   $('cmsv').href=mobile
+    ?'https://www.google.com/maps/search/?api=1&query='+pt[0]+'%2C'+pt[1]
+    :'https://www.google.com/maps/@?api=1&map_action=pano&viewpoint='+pt[0]+'%2C'+pt[1]+'&heading='+hd+'&pitch=0';}
+  $('cmtwo').classList.toggle('on',s.type==='two'&&!CM.c.stops);
+  $('cmprev').disabled=k===0;
+  $('cmnext').disabled=k===S.length-1;
+  $('cmhome').disabled=k===0;
+ }
+ if(CM.map)drawCourse();
+}
+$('cmprev').onclick=()=>{if(CM.k>0){CM.k--;renderCM();}};
+$('cmnext').onclick=()=>{if(CM.k<CM.steps.length-1){CM.k++;renderCM();}};
+$('cmall').onclick=()=>{CM.mode='all';renderCM();};
+$('cmhome').onclick=()=>{CM.mode='step';CM.k=0;renderCM();};
+hooks.coursemap=e=>{
+ const c=COURSES.find(x=>x.id===e.c);
+ CM.c=c;CM.steps=buildSteps(c);CM.k=0;CM.mode='step';CM.zoom=18;
+ $('cmtitle').textContent=c.name;
+ const ok=ensureMap();
+ $('cmap').classList.toggle('nomap',!ok);
+ renderCM();
+ if(ok)setTimeout(()=>{CM.map.invalidateSize();drawCourse();},80);
+};
+(()=>{
+ const box=$('courselist');
+ ['西','東'].forEach(side=>{
+  const h=document.createElement('h3');h.className='chead2';h.textContent=side+'コース';box.appendChild(h);
+  const m=document.createElement('div');m.className='menu';box.appendChild(m);
+  COURSES.filter(c=>c.side===side).forEach(c=>{
+   const b=document.createElement('button');b.className='card'+(c.coords?'':' off');
+   b.innerHTML=c.name+(c.coords?'':'<small>準備中</small>');
+   if(c.coords)b.onclick=()=>push({id:'coursemap',c:c.id});else b.disabled=true;
+   m.appendChild(b);
+  });
+ });
+})();
 </script>
 </body>
 </html>
